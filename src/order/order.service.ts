@@ -9,6 +9,7 @@ export class OrderService {
     @InjectModel(Order.name) private orderModel: Model<OrderDocument>,
   ) {}
 
+  //Endpoint to add order
   addOrder(orderData: {
     dishesList: Array<{ name: string; price: number }>;
     tableNumber: number;
@@ -34,10 +35,12 @@ export class OrderService {
     return 'New Order Added';
   }
 
+  //Endpoint to see all orders of a table
   async getOrderByTableNumber(tableNumber: number): Promise<Array<any>> {
     return this.orderModel.find({ tableNumber: tableNumber });
   }
 
+  //Endpoint to see only future orders of a table
   async getFutureOrderByTableNumber(tableNumber: number): Promise<Array<any>> {
     return this.orderModel.find({
       tableNumber: tableNumber,
