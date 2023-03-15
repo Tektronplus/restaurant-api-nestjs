@@ -6,7 +6,7 @@ export type OrderDocument = HydratedDocument<Order>;
 @Schema()
 export class Order {
   @Prop()
-  listDishes: Array<{ name: string; price: number }>; //Modificare in seguito come tipo Dish
+  listDishes: Array<{ name: string; price: number }>;
 
   @Prop()
   tableNumber: number;
